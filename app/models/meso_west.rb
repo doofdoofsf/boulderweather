@@ -51,7 +51,8 @@ class MesoWest < WeatherService
     {
         params: {
             token: token,
-            stid: @station_ids.join(',')
+            stid: @station_ids.join(','),
+            units: 'speed|mph,temp|f'
         }
     }
   end

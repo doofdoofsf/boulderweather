@@ -1,7 +1,14 @@
 %table
+  %tr
+    %th
+    %th speed
+    %th gust
+    %th direction
+    %th time
   - @observations.each do |observation|
     %tr
       %td= observation.station_name.to_s.humanize.titleize
       %td= observation.speed
       %td= observation.gust
       %td= observation.direction
+      %td= observation.observation_time
