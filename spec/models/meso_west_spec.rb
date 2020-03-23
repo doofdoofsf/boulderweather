@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe MesoWest, :type => :model do
+  # TODO: test a couple of stations
+  # 
   describe "#observation" do
     before do
       @station = MesoWest.new(DisplayWeatherStation.stations[:meso_west].values.first(3))
