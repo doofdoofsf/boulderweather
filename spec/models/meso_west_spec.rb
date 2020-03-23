@@ -7,7 +7,7 @@ RSpec.describe MesoWest, :type => :model do
     end
 
     it "returns an observation" do
-      observation = @station.observation
+      observation = @station.observation('C5038')
       expect(observation.speed).to eq(1)
     end
   end
