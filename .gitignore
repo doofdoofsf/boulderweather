@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore ideas
-/.idea/*
+.idea
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
