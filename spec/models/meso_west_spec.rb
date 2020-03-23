@@ -3,12 +3,12 @@ require "rails_helper"
 RSpec.describe MesoWest, :type => :model do
   describe "#observation" do
     before do
-      @station = MesoWest.new(DisplayWeatherStation.stations[:meso_west].values.first(3))
+      @meso_west = MesoWest.new(DisplayWeatherStation.stations[:meso_west].values.first(3))
     end
 
     describe "ward" do
       before do
-        @observation = @station.observation('C5038')
+        @observation = @meso_west.observation('C5038', 'Ward')
       end
 
       it "returns an speed" do
@@ -38,7 +38,7 @@ RSpec.describe MesoWest, :type => :model do
 
     describe "boulder" do
       before do
-        @observation = @station.observation('E7311')
+        @observation = @meso_west.observation('E7311', 'Boulder')
       end
 
       it "returns an speed" do

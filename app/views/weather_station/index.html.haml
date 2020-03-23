@@ -1,4 +1,7 @@
-%h1 WeatherStation#index
-%p Find me in app/views/weather_station/index.html.erb
-
-%p Hello, World!
+%table
+  - @observations.each do |observation|
+    %tr
+      %td= observation.station_name.to_s.humanize.titleize
+      %td= observation.speed
+      %td= observation.gust
+      %td= observation.direction

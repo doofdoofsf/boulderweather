@@ -8,7 +8,7 @@ class DisplayWeatherStation
             longmont: 'E8833',
             boulder_municipal_airport: 'KBDU',
             golden: 'E9540',
-            sugarloaf: 'E9540'
+            sugarloaf: 'BTAC2'
         }
     }
   end

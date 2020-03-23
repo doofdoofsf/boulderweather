@@ -1,36 +1,38 @@
 class MesoWest < WeatherService
 
-  def observation(id)
-    WindObservation.new(wind_gust(id),
-                        wind_speed(id),
-                        wind_direction(id),
-                        observation_time(id))
+  def observation(station_id, station_name)
+    WindObservation.new(station_id,
+                        station_name,
+                        wind_gust(station_id),
+                        wind_speed(station_id),
+                        wind_direction(station_id),
+                        observation_time(station_id))
   end
 
   private
 
-  def wind_gust(id)
-    observations(id)['wind_gust_value_1']['value']
+  def wind_gust(station_id)
+    observations(station_id)['wind_gust_value_1']['value']
   end
 
-  def wind_speed(id)
-    observations(id)['wind_speed_value_1']['value']
+  def wind_speed(station_id)
+    observations(station_id)['wind_speed_value_1']['value']
   end
 
-  def wind_direction(id)
-    observations(id)['wind_direction_value_1']['value']
+  def wind_direction(station_id)
+    observations(station_id)['wind_direction_value_1']['value']
   end
 
-  def observation_time(id)
-    DateTime.parse(observations(id)['wind_direction_value_1']['date_time'])
+  def observation_time(station_id)
+    DateTime.parse(observations(station_id)['wind_direction_value_1']['date_time'])
   end
 
-  def observations(id)
-    station(id)['OBSERVATIONS']
+  def observations(station_id)
+    station(station_id)['OBSERVATIONS']
   end
 
-  def station(id)
-    stations.select{ |station| station['STID'] == id }.first
+  def station(station_id)
+    stations.select{ |station| station['STID'] == station_id }.first
   end
 
   def stations
