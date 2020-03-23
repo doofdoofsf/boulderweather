@@ -11,6 +11,6 @@
       %td= observation.speed
       %td= observation.gust
       %td= observation.direction
-      %td= distance_of_time_in_words(observation.observation_time, Time.now.utc).short
+      %td #{distance_of_time_in_words(observation.observation_time, Time.now.utc)} ago
 
 -# TODO: might shorten the distance words. See: https://apidock.com/rails/ActionView/Helpers/DateHelper/distance_of_time_in_words
