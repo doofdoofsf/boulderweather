@@ -6,7 +6,7 @@ class WeatherStationController < ApplicationController
   private
 
   def meso_west
-    MesoWest.new(station_ids)
+    @meso_west ||= MesoWest.new(station_ids)
   end
 
   def observations

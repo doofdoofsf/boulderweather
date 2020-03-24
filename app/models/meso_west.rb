@@ -40,7 +40,7 @@ class MesoWest < WeatherService
   end
 
   def response
-    @@response ||= JSON.parse(raw_response.body)
+    @response ||= JSON.parse(raw_response.body)
   end
 
   def raw_response
