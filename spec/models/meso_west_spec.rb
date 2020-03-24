@@ -8,7 +8,7 @@ RSpec.describe MesoWest, :type => :model do
 
     describe "ward" do
       before do
-        @observation = @meso_west.observation('C5038', 'Ward')
+        @observation = @meso_west.observation('KBDU', 'boulder_airport')
       end
 
       it "returns an speed" do

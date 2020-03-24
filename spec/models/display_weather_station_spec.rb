@@ -7,8 +7,8 @@ RSpec.describe DisplayWeatherStation, :type => :model do
     end
 
     it "gives a list of meso_west stations" do
-      expect(@stations).to have_key(:nederland)
-      expect(@stations).to have_value('F1761')
+      expect(@stations).to have_key(:ward)
+      expect(@stations).to have_value('C5038')
     end
   end
 end
