@@ -14,5 +14,9 @@ RSpec.describe WindObservation, :type => :model do
     it "returns a sensible point of the compass" do
       expect(@observation.compass_direction).to eq('WSW')
     end
+
+    it "returns a sensible west component" do
+      expect(@observation.west_gust_component.round(1)).to eq(1.8)
+    end
   end
 end

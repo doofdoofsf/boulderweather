@@ -29,6 +29,10 @@
     color: #999999;
   }
 
+  td.warning {
+    color: red;
+  }
+
   /* Cells in even rows (2,4,6...) are one color */
   tr:nth-child(even) td { background: #F1F1F1; }
 
