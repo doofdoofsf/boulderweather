@@ -5,8 +5,7 @@ class DisplayWeatherStation
             sugarloaf: 'BTAC2',
             boulder: 'E7311',
             boulder_airport: 'KBDU',
-            nederland: 'F1761',
-            ward: 'C5038',
+            nederland: 'F1761'
         }
     }
   end

@@ -8,7 +8,7 @@
     %th
     %th Reported
   - @observations.each do |observation|
-    - wind_class = observation.west_gust_component > 5.0 ? 'warning' : 'normal'
+    - wind_class = observation.west_gust_component > 0.1 ? 'warning' : 'normal'
     %tr
       %td
         %a{href: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{observation.station_id}"}
