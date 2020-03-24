@@ -25,6 +25,10 @@
     text-align: center;
   }
 
+  td.ago {
+    color: #999999;
+  }
+
   /* Cells in even rows (2,4,6...) are one color */
   tr:nth-child(even) td { background: #F1F1F1; }
 
