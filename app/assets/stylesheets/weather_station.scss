@@ -4,8 +4,8 @@
 
 .weather_table {
   color: #333;
+
   font-family: Montserrat, Arial, sans-serif;
-  width: 640px;
   border-collapse:
           collapse; border-spacing: 0;
 
@@ -18,6 +18,7 @@
   th {
     background: #DFDFDF;  /* Darken header a bit */
     font-weight: bold;
+    padding: 5px 20px 5px 20px;
   }
 
   td {
@@ -32,6 +33,10 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  td.title {
+    padding: 10px 40px 10px 40px;
   }
 
   td.ago {
