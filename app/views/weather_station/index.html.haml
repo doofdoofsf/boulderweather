@@ -1,18 +1,16 @@
-%table
+%table.weather_table
   %tr
     %th
-    %th wind
+    %th MPH
     %th
-    %th time
+    %th Reported
   - @observations.each do |observation|
     %tr
       %td
         = observation.station_name.to_s.humanize.titleize
-      %td
+      %td.wind_speed
         #{observation.speed.round(0)} - #{observation.gust.round(0)}
-      %td
-        = observation.compass_direction
-      %td
-        #{distance_of_time_in_words(observation.observation_time, Time.now.utc)} ago
-
--# TODO: might shorten the distance words. See: https://apidock.com/rails/ActionView/Helpers/DateHelper/distance_of_time_in_words
+      %td.compass
+        #{observation.compass_direction}
+      %td.ago
+        #{format_ago_string(distance_of_time_in_words(observation.observation_time, Time.now.utc))}
