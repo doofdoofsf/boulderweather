@@ -2,13 +2,11 @@ class DisplayWeatherStation
   def self.stations
     {
         meso_west: {
+            sugarloaf: 'BTAC2',
+            boulder: 'E7311',
+            boulder_airport: 'KBDU',
             nederland: 'F1761',
             ward: 'C5038',
-            boulder: 'E7311',
-            longmont: 'E8833',
-            boulder_airport: 'KBDU',
-            golden: 'E9540',
-            sugarloaf: 'BTAC2'
         }
     }
   end
