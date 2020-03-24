@@ -8,7 +8,8 @@
     - wind_class = observation.west_gust_component > 5.0 ? 'warning' : 'normal'
     %tr
       %td
-        = observation.station_name.to_s.humanize.titleize
+        %a{href: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{observation.station_id}"}
+          = observation.station_name.to_s.humanize.titleize
       %td.wind_speed{class: "#{wind_class}"}
         #{observation.speed.round(0)} - #{observation.gust.round(0)}
       %td.compass{class: "#{wind_class}"}

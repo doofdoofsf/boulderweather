@@ -25,6 +25,15 @@
     text-align: center;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
   td.ago {
     color: #999999;
   }
