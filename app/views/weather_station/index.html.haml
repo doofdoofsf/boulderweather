@@ -6,7 +6,7 @@
     %th
     %th MPH
     %th
-    %th Reported
+    %th Age
   - @observations.each do |observation|
     - wind_class = observation.west_gust_component > 0.1 ? 'warning' : 'normal'
     %tr
