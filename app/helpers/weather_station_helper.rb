@@ -1,7 +1,6 @@
 module WeatherStationHelper
   def distance_of_time_in_words_minutes(from, to)
-    mins = distance_of_time_in_minutes(from, to)
-    pluralize(mins, 'min')
+    pluralize(distance_of_time_in_minutes(from, to), 'min')
   end
 
   def distance_of_time_in_minutes(from, to)
