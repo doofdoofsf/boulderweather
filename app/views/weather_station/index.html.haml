@@ -4,10 +4,10 @@
 %table.weather_table
   %tr
     %th Wind Station
+    %th Location
     %th MPH
     %th
     %th Age
-    %th Location
   - @observations.each do |observation|
     - wind_class = observation.west_gust_component > 0.1 ? 'warning' : 'normal'
     - station_data = DisplayWeatherStation.station_data(observation.station_name.to_sym)
@@ -15,11 +15,11 @@
       %td.station
         %a{href: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{observation.station_id}"}
           = observation.station_name.to_s.humanize.titleize
+      %td.subtle
+        = station_data[:location]
       %td.wind_speed{class: "#{wind_class}"}
         #{observation.speed.round(0)} - #{observation.gust.round(0)}
       %td.compass{class: "#{wind_class}"}
         #{observation.compass_direction}
       %td.subtle
         #{format_ago_string(distance_of_time_in_words(observation.observation_time, Time.now.utc))}
-      %td.subtle
-        = station_data[:location]
