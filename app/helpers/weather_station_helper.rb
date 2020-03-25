@@ -14,4 +14,8 @@ module WeatherStationHelper
   def meso_west_station_page_url(station_id)
     "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{station_id}"
   end
+
+  def wind_class(observation)
+    observation.compass_direction.include?('W') ? 'warning' : 'normal'
+  end
 end

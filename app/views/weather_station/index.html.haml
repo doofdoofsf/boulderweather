@@ -9,7 +9,6 @@
     %th
     %th Age
   - @observations.each do |observation|
-    - wind_class = observation.west_gust_component > 0.1 ? 'warning' : 'normal'
     - station_data = DisplayWeatherStation.station_data(observation.station_name.to_sym)
     %tr
       %td.station
@@ -18,9 +17,9 @@
       %td.subtle
         %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
           = station_data[:location]
-      %td.wind_speed{class: "#{wind_class}"}
+      %td.wind_speed{class: "#{wind_class(observation)}"}
         #{observation.speed.round(0)} - #{observation.gust.round(0)}
-      %td.compass{class: "#{wind_class}"}
+      %td.compass{class: "#{wind_class(observation)}"}
         #{observation.compass_direction}
       %td.subtle
         = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
