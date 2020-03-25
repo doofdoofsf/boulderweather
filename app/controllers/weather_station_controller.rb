@@ -10,11 +10,11 @@ class WeatherStationController < ApplicationController
   end
 
   def observations
-    stations.map { |name, id| meso_west.observation(id, name) }
+    stations.map { |name, h| meso_west.observation(h[:id], name) }
   end
 
   def station_ids
-    stations.values
+    DisplayWeatherStation.station_ids(:meso_west)
   end
 
   def stations
