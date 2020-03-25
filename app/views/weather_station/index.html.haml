@@ -13,10 +13,10 @@
     - station_data = DisplayWeatherStation.station_data(observation.station_name.to_sym)
     %tr
       %td.station
-        %a{href: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{observation.station_id}"}
+        %a{href: meso_west_station_page_url(observation.station_id)}
           = observation.station_name.to_s.humanize.titleize
       %td.subtle
-        %a{href: "http://maps.google.com/maps?t=k&q=loc:#{station_data[:latitude]}+#{station_data[:longitude]}"}
+        %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
           = station_data[:location]
       %td.wind_speed{class: "#{wind_class}"}
         #{observation.speed.round(0)} - #{observation.gust.round(0)}
