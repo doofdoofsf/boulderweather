@@ -23,4 +23,4 @@
       %td.compass{class: "#{wind_class}"}
         #{observation.compass_direction}
       %td.subtle
-        #{format_ago_string(distance_of_time_in_words(observation.observation_time, Time.now.utc))}
+        = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
