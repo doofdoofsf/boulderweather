@@ -10,7 +10,7 @@
   - @observations.each do |observation|
     - wind_class = observation.west_gust_component > 0.1 ? 'warning' : 'normal'
     %tr
-      %td.title
+      %td.station
         %a{href: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{observation.station_id}"}
           = observation.station_name.to_s.humanize.titleize
       %td.wind_speed{class: "#{wind_class}"}

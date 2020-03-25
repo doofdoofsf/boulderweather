@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.weather_table {
-  color: #333;
+$red-tail-primary: #681d2c;
 
+.weather_table {
   font-family: Montserrat, Arial, sans-serif;
   border-collapse:
           collapse; border-spacing: 0;
@@ -13,17 +13,18 @@
     border: 1px solid transparent; /* No more visible border */
     height: 30px;
     transition: all 0.3s;  /* Simple transition for hover effect */
+    background-color: $red-tail-primary;
   }
 
   th {
-    background: #DFDFDF;  /* Darken header a bit */
     font-weight: bold;
     padding: 5px 20px 5px 20px;
+    color: white;
   }
 
   td {
-    background: #FAFAFA;
     text-align: center;
+    color: $red-tail-primary;
   }
 
   a {
@@ -41,6 +42,10 @@
 
   td.ago {
     color: #999999;
+  }
+
+  td.station {
+    font-weight: bold;
   }
 
   td.warning {
