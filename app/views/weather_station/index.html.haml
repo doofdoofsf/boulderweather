@@ -16,7 +16,8 @@
         %a{href: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{observation.station_id}"}
           = observation.station_name.to_s.humanize.titleize
       %td.subtle
-        = station_data[:location]
+        %a{href: "http://maps.google.com/maps?t=k&q=loc:#{station_data[:latitude]}+#{station_data[:longitude]}"}
+          = station_data[:location]
       %td.wind_speed{class: "#{wind_class}"}
         #{observation.speed.round(0)} - #{observation.gust.round(0)}
       %td.compass{class: "#{wind_class}"}
