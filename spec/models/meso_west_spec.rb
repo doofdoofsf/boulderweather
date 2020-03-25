@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe MesoWest, :type => :model do
   describe "#observation" do
     before do
-      @meso_west = MesoWest.new(DisplayWeatherStation.stations[:meso_west].values.first(3))
+      @meso_west = MesoWest.new(DisplayWeatherStation.station_ids(:meso_west).first(3))
     end
 
     describe "ward" do
