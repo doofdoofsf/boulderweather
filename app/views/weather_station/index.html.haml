@@ -12,10 +12,10 @@
     - station_data = DisplayWeatherStation.station_data(observation.station_name.to_sym)
     %tr
       %td.station{class: "#{wind_class(observation)}"}
+        - if wind_class(observation) == 'warning'
+          &#x26a0;
         %a{href: meso_west_station_page_url(observation.station_id)}
           = observation.station_name.to_s.humanize.titleize
-          - if wind_class(observation) == 'warning'
-            &#x26a0;
       %td.wind_speed{class: "#{wind_class(observation)}"}
         #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
       %td.compass{class: "#{wind_class(observation)}"}
