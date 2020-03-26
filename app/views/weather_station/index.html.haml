@@ -18,7 +18,7 @@
         %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
           = station_data[:location]
       %td.wind_speed{class: "#{wind_class(observation)}"}
-        #{observation.speed.round(0)} - #{observation.gust.round(0)}
+        #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
       %td.compass{class: "#{wind_class(observation)}"}
         #{observation.compass_direction}
       %td.subtle
