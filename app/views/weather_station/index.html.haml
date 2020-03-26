@@ -8,20 +8,21 @@
     %th
     %th Age
     %th Location
-  - @observations.each do |observation|
-    - station_data = DisplayWeatherStation.station_data(observation.station_name.to_sym)
-    %tr
-      %td.station{class: "#{wind_class(observation)}"}
-        - if wind_class(observation) == 'warning'
-          &#x26a0;
-        %a{href: meso_west_station_page_url(observation.station_id)}
-          = observation.station_name.to_s.humanize.titleize
-      %td.wind_speed{class: "#{wind_class(observation)}"}
-        #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
-      %td.compass{class: "#{wind_class(observation)}"}
-        #{observation.compass_direction}
-      %td.subtle
-        = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
-      %td.subtle
-        %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
-          = station_data[:location]
+  - @data.each do |provider, observations|
+    - observations.each do |observation|
+      - station_data = DisplayWeatherStation.station_data(provider, observation.station_name.to_sym)
+      %tr
+        %td.station{class: "#{wind_class(observation)}"}
+          - if wind_class(observation) == 'warning'
+            &#x26a0;
+          %a{href: meso_west_station_page_url(observation.station_id)}
+            = observation.station_name.to_s.humanize.titleize
+        %td.wind_speed{class: "#{wind_class(observation)}"}
+          #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
+        %td.compass{class: "#{wind_class(observation)}"}
+          #{observation.compass_direction}
+        %td.subtle
+          = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
+        %td.subtle
+          %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
+            = station_data[:location]

@@ -1,6 +1,14 @@
 class DisplayWeatherStation
   def self.stations
     {
+        wunderground: {
+            north_boulder_ridge: {
+                id: 'KCOBOULD45',
+                location: 'above launch',
+                latitude: 40.05619,
+                longitude: -105.301689
+            }
+        },
         meso_west: {
             sugarloaf: {
                 id: 'BTAC2',
@@ -30,8 +38,8 @@ class DisplayWeatherStation
     }
   end
 
-  def self.station_data(name)
-    self.stations.values.first.select{|n, _v| n == name}[name]
+  def self.station_data(provider, name)
+    self.stations[provider].select{|n, _v| n == name}[name]
   end
 
   def self.station_ids(provider)
