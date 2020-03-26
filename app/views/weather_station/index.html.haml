@@ -15,7 +15,7 @@
         %td.station{class: "#{wind_class(observation)}"}
           - if wind_class(observation) == 'warning'
             &#x26a0;
-          %a{href: meso_west_station_page_url(observation.station_id)}
+          %a{href: station_page_url(provider, observation.station_id)}
             = observation.station_name.to_s.humanize.titleize
         %td.wind_speed{class: "#{wind_class(observation)}"}
           #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}

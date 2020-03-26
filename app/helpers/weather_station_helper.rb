@@ -11,8 +11,9 @@ module WeatherStationHelper
     "http://maps.google.com/maps?t=k&q=loc:#{latitude}+#{longitude}"
   end
 
-  def meso_west_station_page_url(station_id)
-    "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{station_id}"
+  def station_page_url(provider, station_id)
+    provider == :meso_west ? "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{station_id}" :
+        "https://www.wunderground.com/dashboard/pws/#{station_id}"
   end
 
   def wind_class(observation)
