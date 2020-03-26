@@ -11,7 +11,7 @@
   - @observations.each do |observation|
     - station_data = DisplayWeatherStation.station_data(observation.station_name.to_sym)
     %tr
-      %td.station
+      %td.station{class: "#{wind_class(observation)}"}
         %a{href: meso_west_station_page_url(observation.station_id)}
           = observation.station_name.to_s.humanize.titleize
       %td.wind_speed{class: "#{wind_class(observation)}"}
