@@ -17,6 +17,6 @@ module WeatherStationHelper
   end
 
   def wind_class(observation)
-    observation.compass_direction.include?('W') ? 'warning' : 'normal'
+    observation.compass_direction.include?('W') && observation.gust > 0 ? 'warning' : 'normal'
   end
 end
