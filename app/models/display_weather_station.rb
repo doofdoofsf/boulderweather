@@ -7,7 +7,13 @@ class DisplayWeatherStation
                 location: 'above launch',
                 latitude: 40.05619,
                 longitude: -105.301689
-            }
+            },
+            # sugarloaf_2: {
+            #     id: 'KCOBOULD363',
+            #     location: '3 miles SW',
+            #     latitude: 40.029228,
+            #     longitude: -105.301689
+            # }
         },
         meso_west: {
             sugarloaf: {
