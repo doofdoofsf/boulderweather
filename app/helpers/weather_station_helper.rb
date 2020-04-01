@@ -8,7 +8,7 @@ module WeatherStationHelper
   end
 
   def google_maps_url(latitude, longitude)
-    "http://maps.google.com/maps?t=k&q=loc:#{latitude}+#{longitude}"
+    "https://www.google.com/maps/search/?api=1&query=#{latitude},#{longitude}"
   end
 
   def station_page_url(provider, station_id)
