@@ -1,6 +1,6 @@
 -#force links to open in parent not iframe
 %base{target: '_blank'}
-
+  
 %table.weather_table
   %tr
     %th Wind Station
@@ -18,9 +18,12 @@
         %td.wind_speed{class: "#{wind_class(observation)}"}
           #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
         %td.compass{class: "#{wind_class(observation)}"}
-          #{observation.compass_direction}        
           - if wind_class(observation) == 'warning'
-            &#x26a0;
+            = succeed('&#x26a0;'.html_safe) do
+              = observation.compass_direction
+          - else
+            = observation.compass_direction
+
         %td.subtle
           = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
         %td.subtle
