@@ -31,12 +31,12 @@ class DisplayWeatherStation
                 latitude: 40.018056,
                 longitude: -105.361389
             },
-            boulder: {
-                id: 'E7311',
-                location: '2 miles W',
-                latitude: 40.06518,
-                longitude: -105.32669
-            },
+            # boulder: {
+            #     id: 'E7311',
+            #     location: '2 miles W',
+            #     latitude: 40.06518,
+            #     longitude: -105.32669
+            # },
             boulder_airport: {
                 id: 'KBDU',
                 location: '4 miles ESE',
