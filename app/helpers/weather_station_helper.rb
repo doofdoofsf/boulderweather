@@ -12,8 +12,11 @@ module WeatherStationHelper
   end
 
   def station_page_url(provider, station_id)
-    provider == :meso_west ? "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{station_id}" :
-        "https://www.wunderground.com/dashboard/pws/#{station_id}"
+    {
+        meso_west: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{station_id}",
+        wunderground: "https://www.wunderground.com/dashboard/pws/#{station_id}",
+        mesa_lab: "https://archive.eol.ucar.edu/cgi-bin/weather.cgi?site=ml&units=english"
+    }[provider]
   end
 
   def wind_class(observation)

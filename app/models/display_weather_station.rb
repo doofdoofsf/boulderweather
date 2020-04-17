@@ -1,6 +1,7 @@
 class DisplayWeatherStation
   def self.stations
     {
+
         wunderground: {
             north_boulder_ridge: {
                 id: 'KCOBOULD45',
@@ -14,6 +15,14 @@ class DisplayWeatherStation
                 latitude: 40.029228,
                 longitude: -105.396965
             }
+        },
+        mesa_lab: {
+            ncar_mesa_lab: {
+                id: 'ncar_mesa_lab',
+                location: '5 miles SSE',
+                latitude: 39.978285,
+                longitude: -105.275084
+            },
         },
         meso_west: {
             sugarloaf: {

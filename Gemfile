@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'haml-rails', '~> 2.0'
 gem 'rest-client'
+gem 'nokogiri'
 gem 'font-awesome-sass', '~> 5.12.0'
 
 group :development, :test do
