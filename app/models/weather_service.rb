@@ -14,12 +14,15 @@ class WeatherService
 
   private
 
-  def response
-    @response ||= JSON.parse(raw_response.body)
+  def response(station_id)
+    @response ||= {}
+    return @response[station_id] if @response.has_key?(station_id)
+
+    @response[station_id] = JSON.parse(raw_response(station_id).body)
   end
 
-  def raw_response
-    RestClient.get(query_url, query_args)
+  def raw_response(station_id)
+    RestClient.get(query_url, query_args(station_id))
   end
 
 end

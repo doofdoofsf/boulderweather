@@ -2,31 +2,31 @@ class Wunderground < WeatherService
 
   private
 
-  def wind_gust(_station_id)
-    station_data['imperial']['windGust']
+  def wind_gust(station_id)
+    station_data(station_id)['imperial']['windGust']
   end
 
   def wind_speed(station_id)
-    station_data['imperial']['windSpeed']
+    station_data(station_id)['imperial']['windSpeed']
   end
 
   def wind_direction(station_id)
-    station_data['winddir']
+    station_data(station_id)['winddir']
   end
 
   def observation_time(station_id)
-    DateTime.parse(station_data['obsTimeUtc'])
+    DateTime.parse(station_data(station_id)['obsTimeUtc'])
   end
 
-  def station_data
-    response['observations'].first
+  def station_data(station_id)
+    response(station_id)['observations'].first
   end
 
-  def query_args
+  def query_args(station_id)
     {
         params: {
             apiKey: api_key,
-            stationId: @station_ids.first,
+            stationId: station_id,
             numericPrecision: 'decimal',
             format: 'json',
             units: 'e'

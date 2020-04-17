@@ -7,9 +7,7 @@ class WeatherStationController < ApplicationController
   end
 
   private
-
-  # TODO: This could use a little refactoring
-
+  
   def wunderground_observations
     stations(:wunderground).map { |name, h| wunderground.observation(h[:id], name) }
   end

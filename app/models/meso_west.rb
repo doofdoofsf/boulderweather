@@ -30,6 +30,14 @@ class MesoWest < WeatherService
     response['STATION']
   end
 
+  def response
+    @response ||= JSON.parse(raw_response.body)
+  end
+
+  def raw_response
+    RestClient.get(query_url, query_args)
+  end
+
   def query_args
     {
         params: {
