@@ -23,6 +23,7 @@ class WindMath
   end
 
   def compass
+    return '-' if direction.nil?
     compass_points[((direction / 22.5) + 0.5).to_i % 16]
   end
 
