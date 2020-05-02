@@ -58,6 +58,10 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrake (10.0.3)
+      airbrake-ruby (~> 4.13)
+    airbrake-ruby (4.14.1)
+      rbtree3 (~> 0.5)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
@@ -180,6 +184,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rbtree3 (0.6.0)
     regexp_parser (1.7.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
@@ -268,6 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)

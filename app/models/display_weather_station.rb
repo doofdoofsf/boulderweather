@@ -9,12 +9,12 @@ class DisplayWeatherStation
                 latitude: 40.05619,
                 longitude: -105.301689
             },
-            sugarloaf: {
-                id: 'KCOBOULD363',
-                location: '5 miles WSW',
-                latitude: 40.029228,
-                longitude: -105.396965
-            }
+            # sugarloaf: {
+            #     id: 'KCOBOULD363',
+            #     location: '5 miles WSW',
+            #     latitude: 40.029228,
+            #     longitude: -105.396965
+            # }
         },
         mesa_lab: {
             ncar_mesa_lab: {
@@ -25,7 +25,7 @@ class DisplayWeatherStation
             },
         },
         meso_west: {
-            sugarloaf_mesowest: {
+            sugarloaf: {
                 id: 'BTAC2',
                 location: '3 miles SW',
                 latitude: 40.018056,
