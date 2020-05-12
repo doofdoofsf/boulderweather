@@ -5,16 +5,17 @@
   %tr
     %th Wind Station
     %th MPH
-    %th DIR
+    %th Direction
     %th Age
     %th Location
+    %th MSL feet
   - @data.each do |provider, observations|
     - observations.each do |observation|
       - station_data = DisplayWeatherStation.station_data(provider, observation.station_name.to_sym)
       %tr
         %td.station{class: "#{wind_class(observation)}"}
           %a{href: station_page_url(provider, observation.station_id)}
-            = observation.station_name.to_s.humanize.titleize
+            = station_data[:name]
         %td.wind_speed{class: "#{wind_class(observation)}"}
           #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
         %td.compass{class: "#{wind_class(observation)}"}
@@ -29,3 +30,5 @@
         %td.subtle
           %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
             = station_data[:location]
+        %td.subtle
+          = number_with_delimiter(station_data[:elevation], delimiter: ',')
