@@ -14,6 +14,26 @@ class DisplayWeatherStation
                 location: '5 miles WSW',
                 latitude: 40.029228,
                 longitude: -105.396965
+            },
+            winter_park: {
+                id: 'KCOWINTE9',
+                location: '30 miles WSW',
+                latitude: 39.84396,
+                longitude: -105.783096
+            }
+        },
+        meso_west: {
+            berthoud_pass: {
+                id: 'K0CO',
+                location: '30 miles SW',
+                latitude: 39.79453,
+                longitude: -105.76393
+            },
+            nederland: {
+                id: 'F1761',
+                location: '10 miles SW',
+                latitude: 39.98733,
+                longitude: -105.44883
             }
         },
         mesa_lab: {
@@ -23,26 +43,6 @@ class DisplayWeatherStation
                 latitude: 39.978285,
                 longitude: -105.275084
             },
-        },
-        meso_west: {
-            sugarloaf_mesowest: {
-                id: 'BTAC2',
-                location: '3 miles SW',
-                latitude: 40.018056,
-                longitude: -105.361389
-            },
-            boulder_airport: {
-                id: 'KBDU',
-                location: '4 miles ESE',
-                latitude: 40.0394297,
-                longitude: -105.2258217
-            },
-            nederland: {
-                id: 'F1761',
-                location: '10 miles SW',
-                latitude: 39.98733,
-                longitude: -105.44883
-            }
         }
     }
   end

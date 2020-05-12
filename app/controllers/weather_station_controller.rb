@@ -2,8 +2,8 @@ class WeatherStationController < ApplicationController
   def index
     @data = {
         wunderground: wunderground_observations,
-        mesa_lab: mesa_lab_observations,
-        meso_west: meso_west_observations
+        meso_west: meso_west_observations,
+        mesa_lab: mesa_lab_observations
     }
   end
 
