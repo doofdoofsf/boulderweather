@@ -23,12 +23,6 @@ class DisplayWeatherStation
             }
         },
         meso_west: {
-            berthoud_pass: {
-                id: 'K0CO',
-                location: '30 miles SW',
-                latitude: 39.79453,
-                longitude: -105.76393
-            },
             nederland: {
                 id: 'F1761',
                 location: '10 miles SW',
