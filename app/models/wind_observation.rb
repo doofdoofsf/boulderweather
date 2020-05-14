@@ -23,12 +23,11 @@ class WindMath
   end
 
   def compass
-    return '-' if direction.nil?
-    compass_points[((direction / 22.5) + 0.5).to_i % 16]
+    direction.nil? ? '-' : compass_points[((direction / 22.5) + 0.5).to_i % 16]
   end
 
   def west_gust_component(speed)
-    speed * Math.cos(math_direction_radians)
+    direction.nil? ? '-' : speed * Math.cos(math_direction_radians)
   end
 
   private
