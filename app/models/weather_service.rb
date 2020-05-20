@@ -4,7 +4,8 @@ class WeatherService
   end
 
   def observation(station_id, station_name)
-    WindObservation.new(station_id,
+    WindObservation.new(self.class.to_s.downcase.to_sym,
+                        station_id,
                         station_name,
                         wind_gust(station_id),
                         wind_speed(station_id),

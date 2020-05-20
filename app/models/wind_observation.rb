@@ -1,9 +1,10 @@
 class WindObservation
 
-  attr_reader :station_id, :station_name, :gust, :speed, :direction, :observation_time, :compass_direction, :west_gust_component
+  attr_reader :provider, :station_id, :station_name, :gust, :speed, :direction, :observation_time, :compass_direction, :west_gust_component
 
-  def initialize(station_id, station_name, gust, speed, direction, observation_time)
+  def initialize(provider, station_id, station_name, gust, speed, direction, observation_time)
     wm = WindMath.new(direction)
+    @provider = provider
     @station_id = station_id
     @station_name = station_name
     @gust = gust

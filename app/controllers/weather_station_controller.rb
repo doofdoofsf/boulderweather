@@ -1,20 +1,16 @@
 class WeatherStationController < ApplicationController
   def index
-    @data = {
-        wunderground: wunderground_observations,
-        meso_west: meso_west_observations,
-        mesa_lab: mesa_lab_observations
-    }
+    @observations = wunderground_observations + meso_west_observations + mesa_lab_observations
   end
 
   private
 
   def mesa_lab_observations
-    stations(:mesa_lab).map { |name, h| mesa_lab.observation(h[:id], name) }
+    stations(:mesa_lab).map { |station| mesa_lab.observation(station[:id], station[:name]) }
   end
 
   def wunderground_observations
-    stations(:wunderground).map { |name, h| wunderground.observation(h[:id], name) }
+    stations(:wunderground).map { |station| wunderground.observation(station[:id], station[:name]) }
   end
 
   def mesa_lab
@@ -30,7 +26,7 @@ class WeatherStationController < ApplicationController
   end
 
   def meso_west_observations
-    stations(:meso_west).map { |name, h| meso_west.observation(h[:id], name) }
+    stations(:meso_west).map { |station| meso_west.observation(station[:id], station[:name]) }
   end
 
   def station_ids(provider)
