@@ -1,9 +1,17 @@
 class WeatherStationController < ApplicationController
   def index
-    @observations = wunderground_observations + meso_west_observations + mesa_lab_observations
+    @observations = sort_observations(all_observations)
   end
 
   private
+
+  def all_observations
+    wunderground_observations + meso_west_observations + mesa_lab_observations
+  end
+
+  def sort_observations(observations)
+    observations.sort_by{|o| DisplayWeatherStation.station_priority(o.station_id)}
+  end
 
   def mesa_lab_observations
     stations(:mesa_lab).map { |station| mesa_lab.observation(station[:id], station[:name]) }

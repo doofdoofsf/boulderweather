@@ -39,7 +39,6 @@ class DisplayWeatherStation
                 latitude: 39.98733,
                 longitude: -105.44883,
                 elevation: 8251
-            }
         ],
         mesa_lab: [
             {
@@ -53,6 +52,10 @@ class DisplayWeatherStation
             },
         ]
     }
+  end
+
+  def self.station_priority(station_id)
+    station_data(station_id)[:priority]
   end
 
   def self.station_data(station_id)
