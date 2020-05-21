@@ -39,6 +39,7 @@ class DisplayWeatherStation
                 latitude: 39.98733,
                 longitude: -105.44883,
                 elevation: 8251
+            }
         ],
         mesa_lab: [
             {
