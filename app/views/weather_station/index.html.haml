@@ -16,7 +16,9 @@
         %a{href: station_page_url(observation.provider, observation.station_id)}
           = station_data[:name]
       %td.wind_speed{class: "#{wind_class(observation)}"}
-        #{observation.speed.round(0)}&nbsp;-&nbsp;#{observation.gust.round(0)}
+        - speed = observation.speed.nil? ? '-' : observation.speed.round(0)
+        - gust = observation.gust.nil? ? '-' : observation.gust.round(0)
+        #{speed}&nbsp;-&nbsp;#{gust}
       %td.compass{class: "#{wind_class(observation)}"}
         - if wind_class(observation) == 'warning'
           = succeed(icon('fa', 'exclamation-triangle')) do
