@@ -10,7 +10,7 @@ class WeatherStationController < ApplicationController
   end
 
   def all_observations
-    (wunderground_observations + meso_west_observations + mesa_lab_observations)
+    wunderground_observations + meso_west_observations + mesa_lab_observations
   end
 
   def sort_observations(observations)
