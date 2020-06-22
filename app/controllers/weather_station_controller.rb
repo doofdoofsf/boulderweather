@@ -1,12 +1,16 @@
 class WeatherStationController < ApplicationController
   def index
-    @observations = sort_observations(all_observations)
+    @observations = sort_observations(clean_observations)
   end
 
   private
 
+  def clean_observations
+    all_observations.reject {|i| i.nil?}
+  end
+
   def all_observations
-    (wunderground_observations + meso_west_observations + mesa_lab_observations).reject {|i| i.nil?}
+    (wunderground_observations + meso_west_observations + mesa_lab_observations)
   end
 
   def sort_observations(observations)
