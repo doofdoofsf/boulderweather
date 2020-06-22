@@ -6,7 +6,7 @@ class WeatherStationController < ApplicationController
   private
 
   def all_observations
-    wunderground_observations + meso_west_observations + mesa_lab_observations
+    (wunderground_observations + meso_west_observations + mesa_lab_observations).reject {|i| i.nil?}
   end
 
   def sort_observations(observations)

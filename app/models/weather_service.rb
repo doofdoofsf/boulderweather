@@ -4,18 +4,15 @@ class WeatherService
   end
 
   def observation(station_id, station_name)
-    begin
-      WindObservation.new(self.class.to_s.downcase.to_sym,
-                          station_id,
-                          station_name,
-                          wind_gust(station_id),
-                          wind_speed(station_id),
-                          wind_direction(station_id),
-                          observation_time(station_id))
-    rescue
-      WindObservation.new(self.class.to_s.downcase.to_sym,
-                          station_id, station_name, 0, 0, 0, DateTime.now)
-    end
+    WindObservation.new(self.class.to_s.downcase.to_sym,
+                        station_id,
+                        station_name,
+                        wind_gust(station_id),
+                        wind_speed(station_id),
+                        wind_direction(station_id),
+                        observation_time(station_id))
+  rescue
+    nil
   end
 
   private
