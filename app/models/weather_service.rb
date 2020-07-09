@@ -10,6 +10,7 @@ class WeatherService
                         wind_gust(station_id),
                         wind_speed(station_id),
                         wind_direction(station_id),
+                        air_temp(station_id),
                         observation_time(station_id))
   rescue
     nil

@@ -14,6 +14,10 @@ class MesoWest < WeatherService
     observations(station_id)['wind_direction_value_1']['value']
   end
 
+  def air_temp(station_id)
+    observations(station_id)['air_temp_value_1']['value']
+  end
+
   def observation_time(station_id)
     DateTime.parse(observations(station_id)['wind_direction_value_1']['date_time'])
   end

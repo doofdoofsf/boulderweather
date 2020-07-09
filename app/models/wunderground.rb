@@ -14,6 +14,10 @@ class Wunderground < WeatherService
     station_data(station_id)['winddir']
   end
 
+  def air_temp(station_id)
+    station_data(station_id)['imperial']['temp']
+  end
+
   def observation_time(station_id)
     DateTime.parse(station_data(station_id)['obsTimeUtc'])
   end

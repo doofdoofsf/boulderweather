@@ -14,6 +14,10 @@ class MesaLab < WeatherService
     data_table.css('td')[47].text[/[^°]+/].to_f
   end
 
+  def air_temp(_station_id)
+    data_table.css('td')[7].text[/[^°]+/].to_f
+  end
+
   def observation_time(_station_id)
     raw_observation_time.in_time_zone('America/Denver').utc
   end

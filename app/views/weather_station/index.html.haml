@@ -6,6 +6,7 @@
     %th Wind Station
     %th MPH
     %th Direction
+    %th Temp
     %th Age
     %th Location
     %th MSL feet
@@ -25,7 +26,8 @@
             = observation.compass_direction
         - else
           = observation.compass_direction
-
+      %td.air_temp
+        #{observation.air_temp.round}°
       %td.subtle
         = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
       %td.subtle
