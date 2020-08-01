@@ -12,6 +12,15 @@ class DisplayWeatherStation
                 elevation: 6500
             },
             {
+                name: 'Boulder',
+                priority: 2,
+                id: 'KCOBOULD199',
+                location: '0.5 miles NE',
+                latitude: 40.059174,
+                longitude: -105.281441,
+                elevation: 5600
+            },
+            {
                 name: "Sugarloaf",
                 id: 'KCOBOULD363',
                 priority: 3,
