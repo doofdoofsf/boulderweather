@@ -12,7 +12,7 @@ class DisplayWeatherStation
                 elevation: 6500
             },
             {
-                name: 'Boulder',
+                name: 'BoulderCAST',
                 priority: 2,
                 id: 'KCOBOULD199',
                 location: '0.5 miles NE',
