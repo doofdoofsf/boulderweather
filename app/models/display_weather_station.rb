@@ -1,25 +1,27 @@
 class DisplayWeatherStation
   def self.stations
     {
-        wunderground: [
+        weatherflow: [
             {
                 name: 'North Boulder Ridge',
                 priority: 1,
-                id: 'KCOBOULD45',
+                id: '82375',
                 location: 'above launch',
                 latitude: 40.05619,
                 longitude: -105.301689,
                 elevation: 6500
-            },
-            {
-                name: 'BoulderCAST',
-                priority: 2,
-                id: 'KCOBOULD199',
-                location: '0.5 miles NE',
-                latitude: 40.059174,
-                longitude: -105.281441,
-                elevation: 5600
-            },
+            }
+        ],
+        wunderground: [
+            # {
+            #     name: 'BoulderCAST',
+            #     priority: 2,
+            #     id: 'KCOBOULD199',
+            #     location: '0.5 miles NE',
+            #     latitude: 40.059174,
+            #     longitude: -105.281441,
+            #     elevation: 5600
+            # },
             {
                 name: "Sugarloaf",
                 id: 'KCOBOULD363',
