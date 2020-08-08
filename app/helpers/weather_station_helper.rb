@@ -24,6 +24,7 @@ module WeatherStationHelper
   end
 
   def inversion_class(inversion_difference)
-    inversion_difference > 0 ? 'normal' : 'warning'
+    # inversion_difference > 0 ? 'normal' : 'warning'
+    'normal'
   end
 end

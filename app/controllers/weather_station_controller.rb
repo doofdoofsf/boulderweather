@@ -11,16 +11,20 @@ class WeatherStationController < ApplicationController
       @observations = observations
     end
 
-    def inversion_difference_string
-      sprintf('%+d°', inversion_difference)
+    def lapse_rate_string
+      sprintf('%+d°F / km', lapse_rate)
     end
 
-    def inversion_difference
-      ridge.air_temp - boulder.air_temp
+    def lapse_rate
+      inversion_difference * (1000.0/650.0)
     end
 
     def observation_time
       [boulder.observation_time, ridge.observation_time].min
+    end
+
+    def inversion_difference
+      ridge.air_temp - boulder.air_temp
     end
 
     private
