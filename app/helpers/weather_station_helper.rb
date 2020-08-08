@@ -23,8 +23,7 @@ module WeatherStationHelper
     observation.compass_direction.include?('W') && observation.gust > 0 ? 'warning' : 'normal'
   end
 
-  def inversion_class(inversion_difference)
-    # inversion_difference > 0 ? 'normal' : 'warning'
-    'normal'
+  def inversion_class(lapse_rate)
+    lapse_rate < 0 ? 'good' : 'normal'
   end
 end

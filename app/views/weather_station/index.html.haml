@@ -41,7 +41,7 @@
     %td
     %td{colspan: 2, style: 'text-align: right', class: "#{inversion_class(@inversion.inversion_difference)}"}
       NBR Lapse Rate:
-    %td{class: "#{inversion_class(@inversion.inversion_difference)}"}
+    %td{class: "#{inversion_class(@inversion.lapse_rate)}"}
       = @inversion.lapse_rate_string
     %td.subtle
       = distance_of_time_in_words_minutes(@inversion.observation_time, Time.now.utc)

@@ -24,7 +24,7 @@ class WeatherStationController < ApplicationController
     end
 
     def inversion_difference
-      ridge.air_temp - boulder.air_temp
+      boulder.air_temp - ridge.air_temp
     end
 
     private
