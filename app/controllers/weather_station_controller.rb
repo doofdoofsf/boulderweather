@@ -12,7 +12,7 @@ class WeatherStationController < ApplicationController
     end
 
     def lapse_rate_string
-      sprintf('%+d°F / km', lapse_rate)
+      sprintf('%+.1f° per 1000ft', lapse_rate)
     end
 
     def lapse_rate
