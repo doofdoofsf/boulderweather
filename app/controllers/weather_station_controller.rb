@@ -1,9 +1,42 @@
 class WeatherStationController < ApplicationController
   def index
     @observations = sort_observations(clean_observations)
+    @inversion = Inversion.new(@observations)
   end
 
   private
+
+  class Inversion
+    def initialize(observations)
+      @observations = observations
+    end
+
+    def inversion_difference_string
+      sprintf('%+d°', inversion_difference)
+    end
+
+    def inversion_difference
+      ridge.air_temp - boulder.air_temp
+    end
+
+    def observation_time
+      [boulder.observation_time, ridge.observation_time].min
+    end
+
+    private
+
+    def ridge
+      station('82375')
+    end
+
+    def boulder
+      station('KCOBOULD199')
+    end
+
+    def station(station_id)
+      @observations.find{|o| o.station_id == station_id}
+    end
+  end
 
   def clean_observations
     all_observations.reject {|i| i.nil?}

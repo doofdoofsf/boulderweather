@@ -11,6 +11,7 @@
     %th Location
     %th MSL feet
   - @observations.each do |observation|
+    - next if observation.station_id == 'KCOBOULD199'
     - station_data = DisplayWeatherStation.station_data(observation.station_id)
     %tr
       %td.station{class: "#{wind_class(observation)}"}
@@ -35,3 +36,13 @@
           = station_data[:location]
       %td.subtle
         = number_with_delimiter(station_data[:elevation], delimiter: ',')
+
+  %tr
+    %td
+    %td{colspan: 2, class: "#{inversion_class(@inversion.inversion_difference)}"}
+      NBR Inversion:
+    %td{class: "#{inversion_class(@inversion.inversion_difference)}"}
+      = @inversion.inversion_difference_string
+    %td.subtle
+      = distance_of_time_in_words_minutes(@inversion.observation_time, Time.now.utc)
+
