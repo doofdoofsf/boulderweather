@@ -48,6 +48,9 @@ $red-tail-primary: #681d2c;
 
   td.station {
     font-weight: bold;
+    a {
+      text-decoration: underline;
+    }
   }
 
   td.good {
