@@ -1,12 +1,4 @@
 module WeatherStationHelper
-  def distance_of_time_in_words_minutes(from, to)
-    pluralize(distance_of_time_in_minutes(from, to), 'min')
-  end
-
-  def distance_of_time_in_minutes(from, to)
-    ((to.to_time - from.to_time) / 60.0).round
-  end
-
   def google_maps_url(latitude, longitude)
     "https://www.google.com/maps/search/?api=1&query=#{latitude},#{longitude}"
   end
@@ -23,6 +15,27 @@ module WeatherStationHelper
 
   def inversion_class(lapse_rate)
     lapse_rate < 0 ? 'good' : 'normal'
+  end
+
+  def distance_of_time_in_words(from, to)
+    DistanceOfTime.new(to, from).in_words
+  end
+
+  class DistanceOfTime
+    def initialize(to, from)
+      @to = to
+      @from = from
+    end
+
+    def in_words
+      diff > 60 ? (diff / 60.0).round.to_s + ' min' : diff.to_s + ' sec'
+    end
+
+    private
+
+    def diff
+      (@to.to_time - @from.to_time).round
+    end
   end
 
   class StationPageURL

@@ -32,7 +32,7 @@
         %td.air_temp
           #{observation.air_temp.round}°
         %td.subtle
-          = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
+          = distance_of_time_in_words(observation.observation_time, Time.now.utc)
         %td.subtle
           %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
             = station_data[:location]
@@ -50,6 +50,6 @@
       %span.good{style: "color: #{@inversion.lapse_rate < 0 ? 'green' : 'inherit' rescue 'inherit'}"}
         = @inversion.lapse_rate_string rescue '?'
     %td.subtle
-      = distance_of_time_in_words_minutes(@inversion.observation_time, Time.now.utc) rescue '?'
+      = distance_of_time_in_words(@inversion.observation_time, Time.now.utc) rescue '?'
     %td{colspan: 2}
 
