@@ -33,14 +33,14 @@
           #{observation.air_temp.round}°
         %td.subtle
           = distance_of_time_in_words(observation.observation_time, Time.now.utc)
-        %td.subtle
-          %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
-            = station_data[:location]
-        %td.subtle
-          = number_with_delimiter(station_data[:elevation], delimiter: ',')
       - else
-        %td.subtle{colspan: 6, style: 'text-align: left'}
-          This station is borked, you can blame #{observation.provider.to_s.humanize}
+        %td.subtle{colspan: 4, style: 'text-align: center; font-size: 20px'}
+          ¯\_(ツ)_/¯
+      %td.subtle
+        %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
+          = station_data[:location]
+      %td.subtle
+        = number_with_delimiter(station_data[:elevation], delimiter: ',')
 
 
   %tr
