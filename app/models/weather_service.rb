@@ -11,9 +11,18 @@ class WeatherService
                         wind_speed(station_id),
                         wind_direction(station_id),
                         air_temp(station_id),
-                        observation_time(station_id))
+                        observation_time(station_id),
+                        :good)
   rescue
-    nil
+    WindObservation.new(self.class.to_s.downcase.to_sym,
+                        station_id,
+                        station_name,
+                        0.0,
+                        0.0,
+                        0,
+                        0,
+                        Time.now,
+                        :bad)
   end
 
   private
@@ -26,7 +35,10 @@ class WeatherService
   end
 
   def raw_response(station_id)
-    RestClient.get(query_url, query_args(station_id))
+    RestClient::Request.execute(method: :get,
+                                url: query_url,
+                                headers: {params: query_args(station_id)[:params]},
+                                timeout: 3)
   end
 
 end

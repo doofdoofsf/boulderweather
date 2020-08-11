@@ -13,37 +13,43 @@
   - @observations.each do |observation|
     - next if observation.station_id == 'KCOBOULD199'
     - station_data = DisplayWeatherStation.station_data(observation.station_id)
+
     %tr
       %td.station{class: "#{wind_class(observation)}"}
         %a{href: station_page_url(observation.provider, observation.station_id)}
           = station_data[:name]
-      %td.wind_speed{class: "#{wind_class(observation)}"}
-        - speed = observation.speed.nil? ? '-' : observation.speed.round(0)
-        - gust = observation.gust.nil? ? '-' : observation.gust.round(0)
-        #{speed}&nbsp;-&nbsp;#{gust}
-      %td.compass{class: "#{wind_class(observation)}"}
-        - if wind_class(observation) == 'warning'
-          = succeed(icon('fa', 'exclamation-triangle')) do
+      - if observation.status == :good
+        %td.wind_speed{class: "#{wind_class(observation)}"}
+          - speed = observation.speed.nil? ? '-' : observation.speed.round(0)
+          - gust = observation.gust.nil? ? '-' : observation.gust.round(0)
+          #{speed}&nbsp;-&nbsp;#{gust}
+        %td.compass{class: "#{wind_class(observation)}"}
+          - if wind_class(observation) == 'warning'
+            = succeed(icon('fa', 'exclamation-triangle')) do
+              = observation.compass_direction
+          - else
             = observation.compass_direction
-        - else
-          = observation.compass_direction
-      %td.air_temp
-        #{observation.air_temp.round}°
-      %td.subtle
-        = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
-      %td.subtle
-        %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
-          = station_data[:location]
-      %td.subtle
-        = number_with_delimiter(station_data[:elevation], delimiter: ',')
+        %td.air_temp
+          #{observation.air_temp.round}°
+        %td.subtle
+          = distance_of_time_in_words_minutes(observation.observation_time, Time.now.utc)
+        %td.subtle
+          %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
+            = station_data[:location]
+        %td.subtle
+          = number_with_delimiter(station_data[:elevation], delimiter: ',')
+      - else
+        %td.subtle{colspan: 6, style: 'text-align: left'}
+          This station is borked, you can blame #{observation.provider.to_s.humanize}
+
 
   %tr
     %td{colspan: 4, style: 'text-align: right'}
       %strong
         NBR Lapse Rate:
-      %span.good{style: "color: #{@inversion.lapse_rate < 0 ? 'green' : 'inherit'}"}
-        = @inversion.lapse_rate_string
+      %span.good{style: "color: #{@inversion.lapse_rate < 0 ? 'green' : 'inherit' rescue 'inherit'}"}
+        = @inversion.lapse_rate_string rescue '?'
     %td.subtle
-      = distance_of_time_in_words_minutes(@inversion.observation_time, Time.now.utc)
+      = distance_of_time_in_words_minutes(@inversion.observation_time, Time.now.utc) rescue '?'
     %td{colspan: 2}
 
