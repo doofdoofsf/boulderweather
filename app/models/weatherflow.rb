@@ -15,7 +15,7 @@ class Weatherflow < WeatherService
   end
 
   def air_temp(station_id)
-    station_data(station_id)[7] * 9/5 + 32
+    station_data(station_id)[7] * 9/5 + 32 rescue -100
   end
 
   def observation_time(station_id)
