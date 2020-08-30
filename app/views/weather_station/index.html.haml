@@ -30,7 +30,7 @@
           - else
             = observation.compass_direction
         %td.air_temp
-          #{observation.air_temp.nil? ? '-' : observation.air_temp.round}°
+          = observation.air_temp.nil? ? '-' : observation.air_temp.round.to_s + '°'
         %td.subtle
           = distance_of_time_in_words(observation.observation_time, Time.now.utc)
       - else
