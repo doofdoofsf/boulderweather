@@ -5,7 +5,7 @@ class DisplayWeatherStation
             {
                 name: 'North Boulder Ridge',
                 priority: 1,
-                id: '82375',
+                id: '91623',
                 location: 'above launch',
                 latitude: 40.05619,
                 longitude: -105.301689,
