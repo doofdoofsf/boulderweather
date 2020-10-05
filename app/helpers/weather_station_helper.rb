@@ -55,7 +55,8 @@ module WeatherStationHelper
           mesowest: "https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=#{@station_id}",
           wunderground: "https://www.wunderground.com/dashboard/pws/#{@station_id}",
           mesalab: "https://archive.eol.ucar.edu/cgi-bin/weather.cgi?site=ml&units=english",
-          weatherflow: "https://tempestwx.com/station/25386/graph/#{@station_id}/wind/2"
+          weatherflow: "https://tempestwx.com/station/25386/graph/#{@station_id}/wind/2",
+          holfuy: "https://holfuy.com/en/weather/#{@station_id}"
       }
     end
   end

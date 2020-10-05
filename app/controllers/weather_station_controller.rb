@@ -47,7 +47,7 @@ class WeatherStationController < ApplicationController
   end
 
   def all_observations
-    weatherflow_observations + wunderground_observations + meso_west_observations + mesa_lab_observations
+    holfuy_observations + wunderground_observations + meso_west_observations + mesa_lab_observations
   end
 
   def sort_observations(observations)
@@ -78,12 +78,12 @@ class WeatherStationController < ApplicationController
     stations(:meso_west).map { |station| meso_west.observation(station[:id], station[:name]) }
   end
 
-  def weatherflow
-    @weatherflow ||= Weatherflow.new(station_ids(:weatherflow))
+  def holfuy
+    @holfuy ||= Holfuy.new(station_ids(:holfuy))
   end
 
-  def weatherflow_observations
-    stations(:weatherflow).map { |station| weatherflow.observation(station[:id], station[:name]) }
+  def holfuy_observations
+    stations(:holfuy).map { |station| holfuy.observation(station[:id], station[:name]) }
   end
 
   def station_ids(provider)

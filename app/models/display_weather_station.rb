@@ -1,11 +1,11 @@
 class DisplayWeatherStation
   def self.stations
     {
-        weatherflow: [
+        holfuy: [
             {
                 name: 'North Boulder Ridge',
                 priority: 1,
-                id: '91623',
+                id: '1321',
                 location: 'above launch',
                 latitude: 40.05619,
                 longitude: -105.301689,
