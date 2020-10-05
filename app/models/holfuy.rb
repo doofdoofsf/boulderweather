@@ -46,10 +46,4 @@ class Holfuy < WeatherService
   def api_key
     ENV.fetch('HOLFUY_API_KEY')
   end
-
-  def raw_response(station_id)
-    RestClient::Request.execute(method: :get,
-                                url: query_url+'?'+query_args(station_id)[:params].to_query,
-                                timeout: 3)
-  end
 end
