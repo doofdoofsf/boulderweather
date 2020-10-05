@@ -19,11 +19,11 @@ class Holfuy < WeatherService
   end
 
   def observation_time(station_id)
-    DateTime.parse(station_data(station_id)['dateTime'])
+    DateTime.now.utc - station_data(station_id)['secondsBack']
   end
 
   def station_data(station_id)
-    response(station_id)
+    response(station_id)['measurements'][0]
   end
 
   def query_args(station_id)
@@ -40,7 +40,7 @@ class Holfuy < WeatherService
   end
 
   def query_url
-    'http://api.holfuy.com/live/'
+    'http://api.holfuy.com/archive/'
   end
 
   def api_key
