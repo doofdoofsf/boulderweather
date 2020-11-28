@@ -3,7 +3,9 @@
 
 %table.weather_table
   %tr
-    %th Wind Station
+    %th
+      %a{href: weather_station_index_path, target: '_self'}
+        %i.fas.fa-sync{onclick: "document.getElementsByClassName('fa-sync')[0].classList.toggle('fa-spin')"}
     %th MPH
     %th Direction
     %th Temp
