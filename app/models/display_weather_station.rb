@@ -53,15 +53,15 @@ class DisplayWeatherStation
             }
         ],
         mesa_lab: [
-            # {
-            #     name: 'NCAR Mesa Lab',
-            #     priority: 2,
-            #     id: 'ncar_mesa_lab',
-            #     location: '5 miles SSE',
-            #     latitude: 39.978285,
-            #     longitude: -105.275084,
-            #     elevation: 6184
-            # },
+            {
+                name: 'NCAR Mesa Lab',
+                priority: 2,
+                id: 'ncar_mesa_lab',
+                location: '5 miles SSE',
+                latitude: 39.978285,
+                longitude: -105.275084,
+                elevation: 6184
+            },
         ]
     }
   end
