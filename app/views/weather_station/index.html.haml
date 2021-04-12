@@ -14,6 +14,7 @@
     %th MSL feet
   - @observations.each do |observation|
     - next if observation.station_id == 'KCOBOULD199'
+    - next if (Time.now.utc - observation.observation_time.to_time).round(2) > 120.minutes
     - station_data = DisplayWeatherStation.station_data(observation.station_id)
 
     %tr
