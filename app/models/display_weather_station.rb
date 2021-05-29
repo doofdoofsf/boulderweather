@@ -31,15 +31,15 @@ class DisplayWeatherStation
                 longitude: -105.396965,
                 elevation: 7693
             },
-            # {
-            #   name: "Nederland",
-            #   id: 'KCONEDER107',
-            #   priority: 4,
-            #   location: '10 miles SW',
-            #   latitude: 39.98,
-            #   longitude: -105.57,
-            #   elevation: 9895,
-            # },
+            {
+              name: "Nederland",
+              id: 'KCONEDER97',
+              priority: 4,
+              location: '10 miles SW',
+              latitude: 39.95,
+              longitude: -105.58,
+              elevation: 9895,
+            },
             {
                 name: 'Winter Park',
                 priority: 5,
@@ -51,15 +51,15 @@ class DisplayWeatherStation
             }
         ],
         meso_west: [
-            {
-                name: 'Nederland',
-                priority: 4,
-                id: 'F1761',
-                location: '10 miles SW',
-                latitude: 39.98733,
-                longitude: -105.44883,
-                elevation: 8251
-            }
+            # {
+            #     name: 'Nederland',
+            #     priority: 4,
+            #     id: 'F1761',
+            #     location: '10 miles SW',
+            #     latitude: 39.98733,
+            #     longitude: -105.44883,
+            #     elevation: 8251
+            # }
         ],
         mesa_lab: [
             {
