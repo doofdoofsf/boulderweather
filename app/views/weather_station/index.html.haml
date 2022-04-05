@@ -1,52 +1,53 @@
 -#force links to open in parent not iframe
 %base{target: '_blank'}
 
-%table.weather_table
-  %tr
-    %th
-      %a{href: weather_station_index_path, target: '_self'}
-        %i.fas.fa-sync{onclick: "document.getElementsByClassName('fa-sync')[0].classList.toggle('fa-spin')"}
-    %th MPH
-    %th Direction
-    %th Temp
-    %th Age
-    %th Location
-    %th MSL feet
-  - @observations.each do |observation|
-    - next if observation.station_id == 'KCOBOULD199'
-    - next if (Time.now.utc - observation.observation_time.to_time).round(2) > 120.minutes
-    - station_data = DisplayWeatherStation.station_data(observation.station_id)
-
+%div{:style => "overflow-x:auto;"}
+  %table.weather_table
     %tr
-      %td.station{class: "#{wind_class(observation)}"}
-        %a{href: station_page_url(observation.provider, observation.station_id)}
-          = station_data[:name]
-      - if observation.status == :good
-        %td.wind_speed{class: "#{wind_class(observation)}"}
-          - speed = observation.speed.nil? ? '-' : observation.speed.round(0)
-          - gust = observation.gust.nil? ? '-' : observation.gust.round(0)
-          #{speed}&nbsp;-&nbsp;#{gust}
-        %td.compass{class: "#{wind_class(observation)}"}
-          - if wind_class(observation) == 'warning'
-            = succeed(icon('fa', 'exclamation-triangle')) do
+      %th
+        %a{href: weather_station_index_path, target: '_self'}
+          %i.fas.fa-sync{onclick: "document.getElementsByClassName('fa-sync')[0].classList.toggle('fa-spin')"}
+      %th.priority-1 MPH
+      %th.priority-1 Direction
+      %th.priority-4 Temp
+      %th.priority-3 Age
+      %th.priority-4 Location
+      %th.priority-4 MSL feet
+    - @observations.each do |observation|
+      - next if observation.station_id == 'KCOBOULD199'
+      - next if (Time.now.utc - observation.observation_time.to_time).round(2) > 120.minutes
+      - station_data = DisplayWeatherStation.station_data(observation.station_id)
+
+      %tr
+        %td.priority-1.station{class: "#{wind_class(observation)}"}
+          %a{href: station_page_url(observation.provider, observation.station_id)}
+            = station_data[:name]
+        - if observation.status == :good
+          %td.priority-1.wind_speed{class: "#{wind_class(observation)}"}
+            - speed = observation.speed.nil? ? '-' : observation.speed.round(0)
+            - gust = observation.gust.nil? ? '-' : observation.gust.round(0)
+            #{speed}&nbsp;-&nbsp;#{gust}
+          %td.priority-1.compass{class: "#{wind_class(observation)}"}
+            - if wind_class(observation) == 'warning'
+              = succeed(icon('fa', 'exclamation-triangle')) do
+                = observation.compass_direction
+            - else
               = observation.compass_direction
-          - else
-            = observation.compass_direction
-        %td.air_temp
-          = observation.air_temp.nil? ? '-' : observation.air_temp.round.to_s + '°'
-        %td.subtle
-          = distance_of_time_in_words(observation.observation_time, Time.now.utc)
-      - else
-        %td.subtle{colspan: 2, style: 'text-align: center; font-size: 20px'}
-          ¯\_(ツ)_/¯
-        - 2.times do
-          %td.subtle
-            \-
-      %td.subtle
-        %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
-          = station_data[:location]
-      %td.subtle
-        = number_with_delimiter(station_data[:elevation], delimiter: ',')
+          %td.priority-4.air_temp
+            = observation.air_temp.nil? ? '-' : observation.air_temp.round.to_s + '°'
+          %td.priority-3.subtle
+            = distance_of_time_in_words(observation.observation_time, Time.now.utc)
+        - else
+          %td.priority-4.subtle{colspan: 2, style: 'text-align: center; font-size: 20px'}
+            ¯\_(ツ)_/¯
+          - 2.times do
+            %td.subtle
+              \-
+        %td.priority-4.subtle
+          %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
+            = station_data[:location]
+        %td.priority-4.subtle
+          = number_with_delimiter(station_data[:elevation], delimiter: ',')
 
 
   -#%tr
