@@ -9,4 +9,7 @@
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0"
+  "engines": {
+    "node": "16.x"
+  }
 }
