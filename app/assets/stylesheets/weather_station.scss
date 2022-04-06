@@ -11,34 +11,7 @@ $red-tail-primary: #681d2c;
   margin-right: auto;
   margin-left: auto;
 
-  @media screen and (max-width: 1225px) and (min-width: 1045px) {
-    .priority-5 {
-      display:none;
-    }
-  }
-
-  @media screen and (max-width: 1045px) and (min-width: 835px) {
-    .priority-5 {
-      display:none;
-    }
-    .priority-4 {
-      display:none;
-    }
-  }
-
-  @media screen and (max-width: 835px) and (min-width: 300px) {
-    .priority-5 {
-      display:none;
-    }
-    .priority-4 {
-      display:none;
-    }
-    .priority-3 {
-      display:none;
-    }
-  }
-
-  @media screen and (max-width: 300px) {
+  @media (pointer:none), (pointer:coarse) {
     .priority-5 {
       display:none;
     }
