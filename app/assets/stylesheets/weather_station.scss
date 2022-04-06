@@ -26,8 +26,11 @@ $red-tail-primary: #681d2c;
     }
 
     width: 100%;
-    // font-size: 200%;
-    // line-height: 2em;
+
+    @media only screen and (min-width: 800px) {
+      font-size: 200%;
+      line-height: 2em;
+    }
   }
 
   td, th {
