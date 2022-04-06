@@ -8,8 +8,9 @@ $red-tail-primary: #681d2c;
   font-family: Montserrat, Arial, sans-serif;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 1em;
+  margin-left: 1em;
+  width: 100%;
 
   @media (pointer:none), (pointer:coarse) {
     .priority-5 {
