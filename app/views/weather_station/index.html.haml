@@ -10,7 +10,7 @@
       %th.priority-1 MPH
       %th.priority-1 Direction
       %th.priority-3 Temp
-      %th.priority-3 Age
+      %th.priority-1 Age
       %th.priority-3 Location
       %th.priority-3 MSL feet
     - @observations.each do |observation|
@@ -35,7 +35,7 @@
               = observation.compass_direction
           %td.priority-3.air_temp
             = observation.air_temp.nil? ? '-' : observation.air_temp.round.to_s + '°'
-          %td.priority-3.subtle
+          %td.priority-1.subtle
             = distance_of_time_in_words(observation.observation_time, Time.now.utc)
         - else
           %td.priority-3.subtle{colspan: 2, style: 'text-align: center; font-size: 20px'}

@@ -8,9 +8,8 @@ $red-tail-primary: #681d2c;
   font-family: Montserrat, Arial, sans-serif;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-right: 1em;
-  margin-left: 1em;
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 
   @media (pointer:none), (pointer:coarse) {
     .priority-5 {
@@ -25,6 +24,10 @@ $red-tail-primary: #681d2c;
     .priority-2 {
       display:none;
     }
+
+    table-layout:fixed;
+    width: 100%;
+    font-size: 160%;
   }
 
   td, th {
