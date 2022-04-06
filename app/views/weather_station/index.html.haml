@@ -9,10 +9,10 @@
           %i.fas.fa-sync{onclick: "document.getElementsByClassName('fa-sync')[0].classList.toggle('fa-spin')"}
       %th.priority-1 MPH
       %th.priority-1 Direction
-      %th.priority-4 Temp
+      %th.priority-3 Temp
       %th.priority-3 Age
-      %th.priority-4 Location
-      %th.priority-4 MSL feet
+      %th.priority-3 Location
+      %th.priority-3 MSL feet
     - @observations.each do |observation|
       - next if observation.station_id == 'KCOBOULD199'
       - next if (Time.now.utc - observation.observation_time.to_time).round(2) > 120.minutes
@@ -33,20 +33,20 @@
                 = observation.compass_direction
             - else
               = observation.compass_direction
-          %td.priority-4.air_temp
+          %td.priority-3.air_temp
             = observation.air_temp.nil? ? '-' : observation.air_temp.round.to_s + '°'
           %td.priority-3.subtle
             = distance_of_time_in_words(observation.observation_time, Time.now.utc)
         - else
-          %td.priority-4.subtle{colspan: 2, style: 'text-align: center; font-size: 20px'}
+          %td.priority-3.subtle{colspan: 2, style: 'text-align: center; font-size: 20px'}
             ¯\_(ツ)_/¯
           - 2.times do
             %td.subtle
               \-
-        %td.priority-4.subtle
+        %td.priority-3.subtle
           %a{href: google_maps_url(station_data[:latitude], station_data[:longitude])}
             = station_data[:location]
-        %td.priority-4.subtle
+        %td.priority-3.subtle
           = number_with_delimiter(station_data[:elevation], delimiter: ',')
 
 
