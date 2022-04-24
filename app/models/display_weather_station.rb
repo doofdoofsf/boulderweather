@@ -10,7 +10,16 @@ class DisplayWeatherStation
                 latitude: 40.05619,
                 longitude: -105.301689,
                 elevation: 6500
-            }
+            },
+            # {
+            #   name: 'Lookout',
+            #   priority: 10,
+            #   id: '1295',
+            #   location: '21 miles S',
+            #   latitude: 39.7448583,
+            #   longitude: -105.258836,
+            #   elevation: 7377
+            # }
         ],
         wunderground: [
             {
