@@ -4,6 +4,11 @@ class WeatherStationController < ApplicationController
     @inversion = Inversion.new(@observations)
   end
 
+  def observations_api
+    @observations = sort_observations(clean_observations)
+    render json: @observations
+  end
+
   private
 
   class Inversion
