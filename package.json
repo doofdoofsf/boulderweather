@@ -7,7 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "turbolinks": "^5.2.0",
-    "webpack": "^4.2.2"
+    "webpack": "^5.75.0"
   },
   "version": "1.1.0",
   "engines": {
